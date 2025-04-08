@@ -3,17 +3,16 @@ import { View, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Button, Paragraph, Title } from 'react-native-paper';
 import { styles } from '../styles/styles';
+import Footer from '../components/Footer'; 
 
 export default function HomeScreen() {
-
   const navigation = useNavigation();
 
-  useEffect(() => {
-    document.title = 'Klarwerk - Home';
-  }, []);
-
   return (
-    <ScrollView contentContainerStyle={[styles.scrollContainer, styles.container, { justifyContent: 'center' }]}>
+    <View style={{ flex: 1 }}>
+      <ScrollView
+        contentContainerStyle={[styles.scrollContainer, styles.container, { justifyContent: 'center' }]}
+      >
         <View style={[styles.centerContent, styles.verticalSpacing]}>
           <Title style={[styles.headingXL, { fontFamily: 'Montserrat' }]}>
             Klarwerk
@@ -28,7 +27,6 @@ export default function HomeScreen() {
             mode="contained"
             style={styles.primaryButton}
             onPress={() => {
-              console.log("Learn More button pressed!");
               navigation.navigate('LearnMore');
             }}
           >
@@ -36,5 +34,7 @@ export default function HomeScreen() {
           </Button>
         </View>
       </ScrollView>
+      <Footer />
+    </View>
   );
 }

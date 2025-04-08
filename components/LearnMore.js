@@ -1,35 +1,44 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { styles } from '../styles/styles';
 import { useNavigation } from '@react-navigation/native';
+import Footer from '../components/Footer'; // Make sure you import the Footer!
 
-const LearnMore = () => {
+function LearnMore() {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>This is the Learn More screen.</Text>
-      <Text style={styles.text}>Here you can add more information about your app.</Text>
-      <Button
-        title="Go Back to Home"
-        onPress={() => navigation.goBack()}
-      />
-      <Button // Here's the new button!
-        title="Read Privacy Policy"
-        onPress={() => navigation.navigate('Privacy')}
-      />
+    <View style={{ flex: 1 }}>
+      <View style={[styles.scrollContainer, styles.container, { justifyContent: 'center' }]}>
+        <View style={[styles.centerContent, styles.verticalSpacing]}>
+          {/* The app icon! */}
+          <Image
+            source={require('../assets/AngerManagement_AppIcon_v11_20250330_freigestellt.png')}
+            style={{ width: 240, height: 240 }} // Adjust size as needed!
+          />
+
+          {/* Our brief description */}
+          <Text style={[styles.bodyText, { textAlign: 'center' }]}>
+            Furiora is an anger management app designed to help you with journaling,
+            reflecting on your feelings, and learning healthy ways to cope with anger.
+          </Text>
+
+          {/* Link to the contact page */}
+          <Text style={{ marginTop: 20, fontSize: 12, color: '#777', textAlign: 'center' }}>
+            Questions about your data and requests to delete your account? Please use contact.
+          </Text>
+
+          {/* Link to the contact page */}
+          <TouchableOpacity onPress={() => navigation.navigate('Contact')}>
+            <Text style={[styles.footerLink, { marginTop: 10, fontSize: 16, textAlign: 'center' }]}>
+              Contact
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+      <Footer />
     </View>
   );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-  },
-  text: {
-    fontSize: 16,
-    marginBottom: 10,
-  },
-});
+}
 
 export default LearnMore;

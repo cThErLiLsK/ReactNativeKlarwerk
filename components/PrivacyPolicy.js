@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollView, StyleSheet, View, SafeAreaView } from 'react-native';
 import Markdown from 'react-native-markdown-display';
 import { styles } from '../styles/styles';
+import Footer from '../components/Footer'; 
 
 const PrivacyPolicy = () => {
   const privacyText = `
@@ -61,6 +62,7 @@ Email: contact@klarwerk.org
           <Markdown style={markdownStyles}>{privacyText}</Markdown>
         </View>
       </ScrollView>
+      <Footer />
     </SafeAreaView>
   );
 };
@@ -70,7 +72,8 @@ const markdownStyles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 20, // Added some space below the main heading!
+    marginBottom: 20, 
+    marginTop: 40,
   },
   heading2: {
     fontSize: 20,
