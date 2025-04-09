@@ -5,10 +5,23 @@ import HomeScreen from './components/HomeScreen';
 import LearnMore from './components/LearnMore';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import ContactScreen from './components/ContactScreen'; 
+import FurioraPrivacyPolicy from './components/FurioraPrivacyPolicy';
 import { useFonts } from 'expo-font';
 import { ActivityIndicator, View, Text } from 'react-native'; // Import these for the loading indicator
 
 const Stack = createNativeStackNavigator();
+
+const linking = {
+  prefixes: ['https://www.klarwerk.org', 'http://localhost:19006'],
+  config: {
+    screens: {
+      Home: '',
+      LearnMore: 'learn-more',
+      Privacy: 'privacy-policy',
+      Contact: 'contact', 
+    },
+  },
+};
 
 function App() {
   const [fontsLoaded] = useFonts({
@@ -33,8 +46,8 @@ function App() {
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="LearnMore" component={LearnMore} options={{ title: '' }} />
         <Stack.Screen name="Privacy" component={PrivacyPolicy} options={{ title: '' }} />
-        {/* Add the Contact screen here! */}
         <Stack.Screen name="Contact" component={ContactScreen} options={{ title: '' }} />
+        <Stack.Screen name="FurioraPrivacyPolicy" component={FurioraPrivacyPolicy} options={{ title: '' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

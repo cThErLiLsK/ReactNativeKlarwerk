@@ -34,6 +34,11 @@ function LearnMore() {
               Contact
             </Text>
           </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('FurioraPrivacyPolicy')}>
+            <Text style={[styles.footerLink, { marginTop: 10, fontSize: 16, textAlign: 'center' }]}>
+              Furiora Privacy Policy
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
       <Footer />
