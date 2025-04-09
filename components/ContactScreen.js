@@ -37,7 +37,7 @@ function ContactScreen() {
 
     setIsSending(true);
 
-    const apiEndpoint = 'https://your-api-id.execute-api.your-region.amazonaws.com/prod/sendEmail';
+    const apiEndpoint = 'https://rclbvo52qf.execute-api.eu-central-1.amazonaws.com/dev/klarwerk-contact';
 
     try {
       const response = await fetch(apiEndpoint, {

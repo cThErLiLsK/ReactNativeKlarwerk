@@ -12,14 +12,14 @@ import { ActivityIndicator, View, Text } from 'react-native'; // Import these fo
 const Stack = createNativeStackNavigator();
 
 const linking = {
-  prefixes: ['https://www.klarwerk.org', 'http://localhost:19006'],
+  prefixes: ['https://www.klarwerk.org', 'http://localhost:8001'],
   config: {
     screens: {
       Home: '',
       LearnMore: 'learn-more',
       Privacy: 'privacy-policy',
       Contact: 'contact', 
-      ContactWithSlash: 'contact/'
+      FurioraPrivacyPolicy: 'furiora-privacy-policy', 
     },
   },
 };
@@ -42,14 +42,19 @@ function App() {
 
   // Once the fonts are loaded, we can show our app!
   return (
-    <NavigationContainer>
+    <NavigationContainer 
+      linking={linking}
+      documentTitle={{
+        formatter: (options, route) => 
+          `${options?.title ?? route?.name} Klarwerk`,
+      }}
+    >
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="LearnMore" component={LearnMore} options={{ title: '' }} />
         <Stack.Screen name="Privacy" component={PrivacyPolicy} options={{ title: '' }} />
         <Stack.Screen name="Contact" component={ContactScreen} options={{ title: '' }} />
         <Stack.Screen name="FurioraPrivacyPolicy" component={FurioraPrivacyPolicy} options={{ title: '' }} />
-        <Stack.Screen name="ContactWithSlash" component={ContactScreen} options={{ title: '' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -33,12 +33,12 @@
           "theme_color": "#A1C6EA",
           "icons": [
             {
-              "src": "assets/Klarwerk_favicon.png",
+              "src": "assets/Klarwerk_favicon_192.png",
               "sizes": "192x192",
               "type": "image/png"
             },
             {
-              "src": "assets/Klarwerk_favicon.png",
+              "src": "assets/Klarwerk_favicon_512.png",
               "sizes": "512x512",
               "type": "image/png"
             }
