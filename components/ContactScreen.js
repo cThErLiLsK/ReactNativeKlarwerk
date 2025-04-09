@@ -25,6 +25,7 @@ function ContactScreen() {
   };
 
   const handleSendEmail = async () => {
+
     if (!email || !subject || !message) {
       Alert.alert('Oops!', 'Please fill out all the fields.', [{ text: 'OK' }]);
       return;
@@ -88,7 +89,9 @@ function ContactScreen() {
           <PaperInput
             label="Your Email"
             value={email}
-            onChangeText={setEmail}
+            onChangeText={(text) => {
+              setEmail(text);
+            }}
             keyboardType="email-address"
             mode="outlined"
             style={{ width: '100%', marginBottom: 15, backgroundColor: 'white' }}
@@ -99,7 +102,9 @@ function ContactScreen() {
           <PaperInput
             label="Subject"
             value={subject}
-            onChangeText={setSubject}
+            onChangeText={(text) => {
+              setSubject(text);
+            }}
             mode="outlined"
             style={{ width: '100%', marginBottom: 15, backgroundColor: 'white' }}
             error={!subject && subject !== ''}
@@ -109,7 +114,9 @@ function ContactScreen() {
           <PaperInput
             label="Your Message"
             value={message}
-            onChangeText={setMessage}
+            onChangeText={(text) => {
+              setMessage(text);
+            }}
             mode="outlined"
             multiline={true}
             numberOfLines={4}
@@ -120,7 +127,9 @@ function ContactScreen() {
 
           <PaperButton
             mode="contained"
-            onPress={handleSendEmail}
+            onPress={() => {
+              handleSendEmail();
+            }}
             style={styles.primaryButton}
             disabled={isSending}
           >
