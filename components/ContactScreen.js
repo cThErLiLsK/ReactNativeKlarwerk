@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Alert, ScrollView } from 'react-native';
+import { View, Text, ScrollView, Modal, StyleSheet } from 'react-native';
 import { styles } from '../styles/styles';
 import Footer from '../components/Footer';
 import { useFonts } from 'expo-font';
@@ -18,6 +18,8 @@ function ContactScreen() {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [isSending, setIsSending] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
 
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -25,14 +27,13 @@ function ContactScreen() {
   };
 
   const handleSendEmail = async () => {
-
     if (!email || !subject || !message) {
-      Alert.alert('Oops!', 'Please fill out all the fields.', [{ text: 'OK' }]);
+      showModal('Oops!', 'Please fill out all the fields.');
       return;
     }
 
     if (!isValidEmail(email)) {
-      Alert.alert('Oops!', 'Please enter a valid email address.', [{ text: 'OK' }]);
+      showModal('Oops!', 'Please enter a valid email address.');
       return;
     }
 
@@ -50,18 +51,27 @@ function ContactScreen() {
       });
 
       if (response.ok) {
-        Alert.alert('Success', 'Your message has been sent successfully.', [{ text: 'OK' }]);
+        showModal('Success', 'Your message has been sent successfully.');
         setEmail('');
         setSubject('');
         setMessage('');
       } else {
-        Alert.alert('Error', 'Failed to send the message. Please try again later.', [{ text: 'OK' }]);
+        showModal('Error', 'Failed to send the message. Please try again later.');
       }
     } catch (error) {
-      Alert.alert('Error', 'There was a problem sending your message. Please try again.', [{ text: 'OK' }]);
+      showModal('Error', 'There was a problem sending your message. Please try again.');
     } finally {
       setIsSending(false);
     }
+  };
+
+  const showModal = (title, message) => {
+    setModalMessage(`${title}: ${message}`);
+    setModalVisible(true);
+  };
+
+  const hideModal = () => {
+    setModalVisible(false);
   };
 
   if (!fontsLoaded) {
@@ -89,9 +99,7 @@ function ContactScreen() {
           <PaperInput
             label="Your Email"
             value={email}
-            onChangeText={(text) => {
-              setEmail(text);
-            }}
+            onChangeText={setEmail}
             keyboardType="email-address"
             mode="outlined"
             style={{ width: '100%', marginBottom: 15, backgroundColor: 'white' }}
@@ -102,9 +110,7 @@ function ContactScreen() {
           <PaperInput
             label="Subject"
             value={subject}
-            onChangeText={(text) => {
-              setSubject(text);
-            }}
+            onChangeText={setSubject}
             mode="outlined"
             style={{ width: '100%', marginBottom: 15, backgroundColor: 'white' }}
             error={!subject && subject !== ''}
@@ -114,9 +120,7 @@ function ContactScreen() {
           <PaperInput
             label="Your Message"
             value={message}
-            onChangeText={(text) => {
-              setMessage(text);
-            }}
+            onChangeText={setMessage}
             mode="outlined"
             multiline={true}
             numberOfLines={4}
@@ -127,9 +131,7 @@ function ContactScreen() {
 
           <PaperButton
             mode="contained"
-            onPress={() => {
-              handleSendEmail();
-            }}
+            onPress={handleSendEmail}
             style={styles.primaryButton}
             disabled={isSending}
           >
@@ -138,8 +140,55 @@ function ContactScreen() {
         </View>
       </ScrollView>
       <Footer />
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={hideModal}
+      >
+        <View style={modalStyles.centeredView}>
+          <View style={modalStyles.modalView}>
+            <Text style={modalStyles.modalText}>{modalMessage}</Text>
+            <PaperButton mode="contained" onPress={hideModal} style={modalStyles.modalButton}>
+              OK
+            </PaperButton>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }
+
+const modalStyles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+  modalButton: {
+    marginTop: 10,
+  },
+});
 
 export default ContactScreen;
