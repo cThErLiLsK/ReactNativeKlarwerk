@@ -39,7 +39,7 @@ function ContactScreen() {
 
     setIsSending(true);
 
-    const apiEndpoint = 'https://rclbvo52qf.execute-api.eu-central-1.amazonaws.com/dev/klarwerk-contact';
+    const apiEndpoint = 'https://tb5l6q2c5f.execute-api.eu-central-1.amazonaws.com/dev/klarwerk-contact';
 
     try {
       const response = await fetch(apiEndpoint, {
