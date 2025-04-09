@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "testApp_v11",
-    "slug": "testApp_v11",
+    "name": "Klarwerk",
+    "slug": "klarwerk",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/Klarwerk_favicon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
@@ -17,12 +17,34 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/Klarwerk_favicon.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/Klarwerk_favicon.png",
+      "extra": {
+        "manifest": {
+          "name": "Klarwerk",
+          "short_name": "Klarwerk",
+          "start_url": ".",
+          "display": "standalone",
+          "background_color": "#ffffff",
+          "theme_color": "#A1C6EA",
+          "icons": [
+            {
+              "src": "assets/Klarwerk_favicon.png",
+              "sizes": "192x192",
+              "type": "image/png"
+            },
+            {
+              "src": "assets/Klarwerk_favicon.png",
+              "sizes": "512x512",
+              "type": "image/png"
+            }
+          ]
+        }
+      }
     },
     "plugins": [
       "expo-font"

@@ -19,6 +19,7 @@ const linking = {
       LearnMore: 'learn-more',
       Privacy: 'privacy-policy',
       Contact: 'contact', 
+      ContactWithSlash: 'contact/'
     },
   },
 };
@@ -48,6 +49,7 @@ function App() {
         <Stack.Screen name="Privacy" component={PrivacyPolicy} options={{ title: '' }} />
         <Stack.Screen name="Contact" component={ContactScreen} options={{ title: '' }} />
         <Stack.Screen name="FurioraPrivacyPolicy" component={FurioraPrivacyPolicy} options={{ title: '' }} />
+        <Stack.Screen name="ContactWithSlash" component={ContactScreen} options={{ title: '' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
