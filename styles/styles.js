@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
+import { lightColors } from './themes';
 
 export const styles = StyleSheet.create({
   // Layout
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: lightColors.background,
     padding: 20,
   },
   scrollContainer: {
@@ -28,18 +29,18 @@ export const styles = StyleSheet.create({
     fontSize: 48,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#333333',
+    color: lightColors.text,
     lineHeight: 55,
     marginBottom: 10,
-    fontFamily: 'Montserrat', // Use Montserrat for big headings
+    fontFamily: 'Montserrat',
   },
   headingL: {
     fontSize: 32,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#333333',
+    color: lightColors.text,
     marginBottom: 20,
-    fontFamily: 'Montserrat', // Use Montserrat for large headings
+    fontFamily: 'Montserrat',
   },
   subHeading: {
     fontSize: 22,
@@ -48,12 +49,12 @@ export const styles = StyleSheet.create({
     color: '#555555',
     lineHeight: 28,
     marginVertical: 10,
-    fontFamily: 'OpenSans', // OpenSans used for subheading
+    fontFamily: 'OpenSans',
   },
   bodyText: {
     fontSize: 16,
     textAlign: 'center',
-    color: '#333333',
+    color: lightColors.text,
     marginVertical: 20,
     maxWidth: 500,
     lineHeight: 24,
@@ -69,18 +70,18 @@ export const styles = StyleSheet.create({
 
   // Buttons
   primaryButton: {
-    backgroundColor: '#5492B3',
+    backgroundColor: lightColors.primary,
     marginTop: 20,
     paddingVertical: 12,
     paddingHorizontal: 25,
     borderRadius: 8,
   },
   primaryButtonText: {
-    color: '#FFFFFF',
+    color: lightColors.onPrimary,
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
-    fontFamily: 'OpenSans', // Consistent use of OpenSans
+    fontFamily: 'OpenSans',
   },
 
   // Footer
@@ -94,32 +95,32 @@ export const styles = StyleSheet.create({
   },
   footerLink: {
     fontSize: 16,
-    color: '#5492B3',
+    color: lightColors.primary,
     fontFamily: 'OpenSans',
   },
 
   // Input Styles
   input: {
     height: 40,
-    borderColor: '#ccc',
+    borderColor: lightColors.inputBorder,
     borderWidth: 1,
     borderRadius: 5,
     marginBottom: 15,
     paddingHorizontal: 10,
     fontSize: 16,
-    backgroundColor: '#f0f0f0', // Light gray background for inputs
+    backgroundColor: lightColors.inputBackground,
     fontFamily: 'OpenSans',
   },
 
   multilineInput: {
     minHeight: 80,
     textAlignVertical: 'top',
-    backgroundColor: '#f0f0f0', // Same gray background for multiline
+    backgroundColor: lightColors.inputBackground,
     fontFamily: 'OpenSans',
   },
 
   focusedInput: {
-    borderColor: '#5492B3', // Footer link blue
+    borderColor: lightColors.inputFocusBorder,
     borderWidth: 2,
-},
+  },
 });

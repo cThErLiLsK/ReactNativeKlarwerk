@@ -8,6 +8,10 @@ function Footer() {
 
   return (
     <View style={styles.footerContainer}>
+      <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.footerLinkTouchable}>
+        <Text style={styles.footerLink}>Home</Text>
+      </TouchableOpacity>
+      <Text style={styles.footerSeparator}> | </Text>
       <TouchableOpacity onPress={() => navigation.navigate('Privacy')} style={styles.footerLinkTouchable}>
         <Text style={styles.footerLink}>Privacy Policy</Text>
       </TouchableOpacity>
