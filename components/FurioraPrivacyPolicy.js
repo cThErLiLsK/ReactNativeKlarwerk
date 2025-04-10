@@ -1,7 +1,7 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View, SafeAreaView } from 'react-native';
+import { ScrollView, View, SafeAreaView, Image } from 'react-native';
 import Markdown from 'react-native-markdown-display';
-import { styles } from '../styles/styles';
+import { styles, markdownStyles } from '../styles/styles';
 import Footer from '../components/Footer';
 
 const FurioraPrivacyPolicy = () => {
@@ -78,6 +78,13 @@ Email: contact@klarwerk.org
     <SafeAreaView style={{ flex: 1, backgroundColor: styles.container.backgroundColor }}>
       <ScrollView contentContainerStyle={[styles.scrollContainer, { alignItems: 'center' }]}>
         <View style={styles.centeredContentWithMaxWidth}>
+          {/* Logo */}
+          <Image
+            source={require('../assets/AngerManagement_AppIcon_v11_20250330_freigestellt.png')}
+            style={{ width: 240, height: 240 }} 
+            resizeMode="contain"
+          />
+          {/* Privacy Policy Text */}
           <Markdown style={markdownStyles}>{privacyText}</Markdown>
         </View>
       </ScrollView>
@@ -85,44 +92,5 @@ Email: contact@klarwerk.org
     </SafeAreaView>
   );
 };
-
-const markdownStyles = StyleSheet.create({
-  heading1: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 20,
-    marginTop: 40,
-    fontFamily: 'Montserrat',
-  },
-  heading2: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginTop: 15,
-    marginBottom: 10,
-    fontFamily: 'Montserrat',
-  },
-  paragraph: {
-    fontSize: 16,
-    lineHeight: 24,
-    marginBottom: 10,
-    fontFamily: 'OpenSans',
-  },
-  list_item: {
-    fontSize: 16,
-    lineHeight: 24,
-    marginLeft: 20,
-    marginBottom: 5,
-    fontFamily: 'OpenSans',
-  },
-  hr: {
-    borderBottomWidth: 1,
-    borderColor: '#cccccc',
-    marginVertical: 15,
-  },
-  strong: {
-    fontWeight: 'bold',
-  },
-});
 
 export default FurioraPrivacyPolicy;

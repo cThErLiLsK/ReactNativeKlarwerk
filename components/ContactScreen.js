@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, Modal, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, Modal, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { styles } from '../styles/styles';
 import Footer from '../components/Footer';
 import { useFonts } from 'expo-font';
@@ -94,6 +94,22 @@ function ContactScreen() {
         ]}
       >
         <View style={[styles.centeredContentWithMaxWidth]}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 30 }}>
+            <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Home')}>
+              <Image
+                source={require('../assets/Klarwerk_favicon_freigestellt.png')}
+                style={{ width: 240, height: 240, marginRight: 10 }}
+                resizeMode="contain"
+              />
+            </TouchableOpacity>
+            <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('LearnMore')}>
+              <Image
+                source={require('../assets/AngerManagement_AppIcon_v11_20250330_freigestellt.png')}
+                style={{ width: 240, height: 240 }}
+                resizeMode="contain"
+              />
+            </TouchableOpacity>
+          </View>
           <Text style={[styles.headingL, { marginBottom: 30 }]}>Contact Us</Text>
 
           <PaperInput

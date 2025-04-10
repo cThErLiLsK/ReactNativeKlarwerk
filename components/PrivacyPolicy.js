@@ -1,7 +1,7 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View, SafeAreaView } from 'react-native';
+import { ScrollView, View, SafeAreaView } from 'react-native';
 import Markdown from 'react-native-markdown-display';
-import { styles } from '../styles/styles';
+import { styles, markdownStyles } from '../styles/styles';
 import Footer from '../components/Footer'; 
 
 const PrivacyPolicy = () => {
@@ -66,40 +66,5 @@ Email: contact@klarwerk.org
     </SafeAreaView>
   );
 };
-
-const markdownStyles = StyleSheet.create({
-  heading1: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 20, 
-    marginTop: 40,
-  },
-  heading2: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginTop: 15,
-    marginBottom: 10,
-  },
-  paragraph: {
-    fontSize: 16,
-    lineHeight: 24,
-    marginBottom: 10,
-  },
-  list_item: {
-    fontSize: 16,
-    lineHeight: 24,
-    marginLeft: 20,
-    marginBottom: 5,
-  },
-  hr: {
-    borderBottomWidth: 1,
-    borderColor: '#cccccc',
-    marginVertical: 15,
-  },
-  strong: {
-    fontWeight: 'bold',
-  },
-});
 
 export default PrivacyPolicy;

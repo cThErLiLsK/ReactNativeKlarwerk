@@ -14,7 +14,7 @@ function LearnMore() {
           {/* The app icon! */}
           <Image
             source={require('../assets/AngerManagement_AppIcon_v11_20250330_freigestellt.png')}
-            style={{ width: 240, height: 240 }} // Adjust size as needed!
+            style={{ width: 240, height: 240 }} 
           />
 
           {/* Our brief description */}

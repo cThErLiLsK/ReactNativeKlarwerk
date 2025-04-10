@@ -7,6 +7,7 @@ import LearnMore from './components/LearnMore';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import ContactScreen from './components/ContactScreen';
 import FurioraPrivacyPolicy from './components/FurioraPrivacyPolicy';
+import CustomHeader from './components/CustomHeader'; 
 import { useFonts } from 'expo-font';
 import { ActivityIndicator, View, Text } from 'react-native';
 import { CombinedLightTheme } from './styles/themes'; // Import the theme
@@ -51,7 +52,7 @@ function App() {
             `${options?.title ?? route?.name} Klarwerk`,
         }}
       >
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator initialRouteName="Home" screenOptions={{ header: () => <CustomHeader />, }}>
           <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
           <Stack.Screen name="LearnMore" component={LearnMore} options={{ title: '' }} />
           <Stack.Screen name="Privacy" component={PrivacyPolicy} options={{ title: '' }} />

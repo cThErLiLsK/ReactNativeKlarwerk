@@ -40,13 +40,13 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     color: lightColors.text,
     marginBottom: 20,
-    fontFamily: 'Montserrat',
+    fontFamily: 'OpenSans',
   },
   subHeading: {
     fontSize: 22,
     fontStyle: 'italic',
     textAlign: 'center',
-    color: '#555555',
+    color: lightColors.text,
     lineHeight: 28,
     marginVertical: 10,
     fontFamily: 'OpenSans',
@@ -63,7 +63,7 @@ export const styles = StyleSheet.create({
   mutedText: {
     fontSize: 18,
     textAlign: 'center',
-    color: '#555555',
+    color: lightColors.text,
     marginBottom: 40,
     fontFamily: 'OpenSans',
   },
@@ -89,9 +89,9 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     paddingVertical: 15,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: lightColors.surface,
     borderTopWidth: 1,
-    borderTopColor: '#ddd',
+    borderTopColor: lightColors.border,
   },
   footerLink: {
     fontSize: 16,
@@ -122,5 +122,71 @@ export const styles = StyleSheet.create({
   focusedInput: {
     borderColor: lightColors.inputFocusBorder,
     borderWidth: 2,
+  },
+
+  // Custom Header Styles
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10,
+    backgroundColor: lightColors.background,
+  },
+  backButton: {
+    padding: 10,
+  },
+  logoContainer: {
+    padding: 10,
+  },
+  logo: {
+    width: 300,
+    height: 70,
+    resizeMode: 'contain',
+  },
+});
+
+// Markdown Styles
+export const markdownStyles = StyleSheet.create({
+  heading1: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 20,
+    marginTop: 40,
+    color: lightColors.text,
+    fontFamily: 'OpenSans',
+  },
+  heading2: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: 15,
+    marginBottom: 10,
+    color: lightColors.text,
+    fontFamily: 'OpenSans',
+  },
+  paragraph: {
+    fontSize: 16,
+    lineHeight: 24,
+    marginBottom: 10,
+    color: lightColors.text,
+    fontFamily: 'OpenSans',
+  },
+  list_item: {
+    fontSize: 16,
+    lineHeight: 24,
+    marginLeft: 20,
+    marginBottom: 5,
+    color: lightColors.text,
+    fontFamily: 'OpenSans',
+  },
+  hr: {
+    borderBottomWidth: 1,
+    borderColor: lightColors.border,
+    marginVertical: 15,
+  },
+  strong: {
+    fontWeight: 'bold',
+    color: lightColors.text,
+    fontFamily: 'OpenSans',
   },
 });
