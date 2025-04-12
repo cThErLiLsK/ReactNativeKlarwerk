@@ -139,7 +139,7 @@ export const styles = StyleSheet.create({
     padding: 10,
   },
   logo: {
-    width: 300,
+    width: 260,
     height: 70,
     resizeMode: 'contain',
   },

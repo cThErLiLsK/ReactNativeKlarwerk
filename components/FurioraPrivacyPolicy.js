@@ -1,10 +1,14 @@
 import React from 'react';
-import { ScrollView, View, SafeAreaView, Image } from 'react-native';
+import { ScrollView, View, SafeAreaView, Image, Dimensions } from 'react-native';
 import Markdown from 'react-native-markdown-display';
 import { styles, markdownStyles } from '../styles/styles';
 import Footer from '../components/Footer';
 
 const FurioraPrivacyPolicy = () => {
+  const { width } = Dimensions.get('window');
+  const maxPercentage = 0.3;
+  const logoPageSize = Math.min(240, width * maxPercentage);
+
   const privacyText = `
 # Privacy Policy for Furiora App
 
@@ -81,7 +85,7 @@ Email: contact@klarwerk.org
           {/* Logo */}
           <Image
             source={require('../assets/AngerManagement_AppIcon_v11_20250330_freigestellt.png')}
-            style={{ width: 240, height: 240 }} 
+            style={{ width: logoPageSize, height: logoPageSize }} 
             resizeMode="contain"
           />
           {/* Privacy Policy Text */}

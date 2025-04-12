@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, Modal, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, Modal, StyleSheet, Image, TouchableOpacity, Dimensions, KeyboardAvoidingView, Platform } from 'react-native';
 import { styles } from '../styles/styles';
 import Footer from '../components/Footer';
 import { useFonts } from 'expo-font';
@@ -8,6 +8,10 @@ import { TextInput as PaperInput, Button as PaperButton } from 'react-native-pap
 
 function ContactScreen() {
   const navigation = useNavigation();
+
+  const { width } = Dimensions.get('window');
+  const maxPercentage = 0.3;
+  const logoPageSize = Math.min(240, width * maxPercentage);
 
   const [fontsLoaded] = useFonts({
     OpenSans: require('../assets/fonts/OpenSans-Regular.ttf'),
@@ -83,29 +87,32 @@ function ContactScreen() {
   }
 
   return (
-    <View style={{ flex: 1 }}>
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 0}
+    >
       <ScrollView
-        contentContainerStyle={[
-          styles.scrollContainer, styles.container,
-          {
-            alignItems: 'center',
-            paddingVertical: 50,
-          }
-        ]}
+        contentContainerStyle={{
+          flexGrow: 1,
+          alignItems: 'center',
+          paddingVertical: 50,
+          paddingBottom: 100, // Add padding to ensure content is scrollable
+        }}
       >
         <View style={[styles.centeredContentWithMaxWidth]}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 30 }}>
             <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Home')}>
               <Image
                 source={require('../assets/Klarwerk_favicon_freigestellt.png')}
-                style={{ width: 240, height: 240, marginRight: 10 }}
+                style={{ width: logoPageSize, height: logoPageSize, marginRight: 10 }}
                 resizeMode="contain"
               />
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('LearnMore')}>
               <Image
                 source={require('../assets/AngerManagement_AppIcon_v11_20250330_freigestellt.png')}
-                style={{ width: 240, height: 240 }}
+                style={{ width: logoPageSize, height: logoPageSize }}
                 resizeMode="contain"
               />
             </TouchableOpacity>
@@ -139,8 +146,8 @@ function ContactScreen() {
             onChangeText={setMessage}
             mode="outlined"
             multiline={true}
-            numberOfLines={4}
-            style={{ width: '100%', marginBottom: 20, backgroundColor: 'white' }}
+            numberOfLines={5} // Ensure at least 5 lines are visible
+            style={{ width: '100%', marginBottom: 20, backgroundColor: 'white', minHeight: 120 }} // Ensure minimum height
             error={!message && message !== ''}
             selectionColor="#5492B3"
           />
@@ -148,7 +155,7 @@ function ContactScreen() {
           <PaperButton
             mode="contained"
             onPress={handleSendEmail}
-            style={styles.primaryButton}
+            style={{ marginTop: 20 }} // Ensure the button is visible
             disabled={isSending}
           >
             {isSending ? 'Sending...' : 'Send Message'}
@@ -172,7 +179,7 @@ function ContactScreen() {
           </View>
         </View>
       </Modal>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
