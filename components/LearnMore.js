@@ -19,8 +19,7 @@ function LearnMore() {
 
           {/* Our brief description */}
           <Text style={[styles.bodyText, { textAlign: 'center' }]}>
-            Furiora is an anger management app designed to help you with journaling,
-            reflecting on your feelings, and learning healthy ways to cope with anger.
+            Furiora is your companion for anger management that helps you journal, reflect on emotions, and identify healthy strategies for coping with anger.
           </Text>
 
           {/* Link to the contact page */}
