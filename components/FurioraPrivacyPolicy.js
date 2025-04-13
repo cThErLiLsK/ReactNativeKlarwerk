@@ -10,11 +10,10 @@ const FurioraPrivacyPolicy = () => {
   const logoPageSize = Math.min(240, width * maxPercentage);
 
   const privacyText = `
-# Privacy Policy for Furiora App
+# Furiora Privacy Policy
 
 We respect your privacy and are committed to protecting your personal data. This Privacy Policy outlines how we handle any information you provide while using our app and website, in accordance with the General Data Protection Regulation (GDPR), an EU regulation.
 
----
 
 ## 1. Data Collection
 
@@ -22,7 +21,6 @@ We do not collect any personal data unless you choose to provide it voluntarily 
 
 In the Furiora app, you can enter and store anger-related events, chat messages, and journal entries. This information may include sensitive emotional data that you choose to provide.
 
----
 
 ## 2. Use of Personal Data
 
@@ -36,7 +34,6 @@ Text input (such as anger event descriptions and chat messages) is processed usi
 
 We do **not** sell or share your data for advertising or marketing purposes.
 
----
 
 ## 3. Data Storage & Security
 
@@ -45,7 +42,6 @@ We do **not** sell or share your data for advertising or marketing purposes.
 
 All data is stored on secure infrastructure provided by **Amazon Web Services (AWS)**.
 
----
 
 ## 4. Third-party Services
 
@@ -56,7 +52,6 @@ We rely on the following third-party services:
 
 These providers do not use your data for their own purposes and are contractually bound to strict data privacy agreements. However, their own terms and conditions may apply.
 
----
 
 ## 5. Your Rights
 
@@ -68,7 +63,6 @@ Under the GDPR, you have the right to:
 
 To exercise these rights, please contact us directly at contact@klarwerk.org.
 
----
 
 ## 6. Contact
 
@@ -76,6 +70,9 @@ If you have any questions or concerns regarding this Privacy Policy, please cont
 
 **Klarwerk**
 Email: contact@klarwerk.org
+
+
+*Version 0.1; 2025-04-12*
 `;
 
   return (

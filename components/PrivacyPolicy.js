@@ -10,13 +10,11 @@ const PrivacyPolicy = () => {
 
 We respect your privacy and are committed to protecting your personal data. This Privacy Policy outlines how we handle any information you provide while using our website, in accordance with the General Data Protection Regulation (GDPR).
 
----
 
 ## 1. Data Collection
 
 We do not collect any personal data unless you choose to provide it voluntarily via our contact form.
 
----
 
 ## 2. Use of Personal Data
 
@@ -27,13 +25,11 @@ If you contact us through the form on our website:
 - We do not use your data for marketing purposes.
 - Your data will not be shared with third parties.
 
----
 
 ## 3. Data Retention
 
 Your message and contact details will be retained only as long as necessary to respond to your inquiry or as required by law.
 
----
 
 ## 4. Your Rights
 
@@ -45,7 +41,6 @@ Under the GDPR, you have the right to:
 
 To exercise any of these rights, please contact us directly using the details provided on our website.
 
----
 
 ## 5. Contact
 
@@ -53,6 +48,9 @@ If you have any questions about this Privacy Policy or wish to request the delet
 
 **Klarwerk**
 Email: contact@klarwerk.org
+
+
+*Version 0.1; 2025-04-10*
   `;
 
   return (
