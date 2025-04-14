@@ -10,7 +10,7 @@ const FurioraPrivacyPolicy = () => {
   const logoPageSize = Math.min(240, width * maxPercentage);
 
   const privacyText = `
-# Furiora Privacy Policy
+# Furiora Privacy Policy 
 
 We respect your privacy and are committed to protecting your personal data. This Privacy Policy outlines how we handle any information you provide while using our app and website, in accordance with the General Data Protection Regulation (GDPR), an EU regulation.
 
